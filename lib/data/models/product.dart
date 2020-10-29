@@ -6,4 +6,10 @@ class Product {
   double cost;
   String description;
   String thumbnail;
+  Product({
+    this.name,
+    this.cost,
+    this.description,
+    this.thumbnail,
+  });
 }

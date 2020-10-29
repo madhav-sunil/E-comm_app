@@ -1,7 +1,10 @@
-import 'package:e_comm_app/models/product.dart';
+import 'package:e_comm_app/data/models/product.dart';
 
 class Cart {
-  static Map<Product, int> items;
+  static Map<Product, int> items = {};
+
+  /// Takes [product] and [count] as Arguments
+  /// and Adds to [Cart].
   static addToCart(Product product, int count) {
     if (items.containsKey(product)) {
       items[product] += count;
@@ -10,9 +13,11 @@ class Cart {
     }
   }
 
-  static removeFromCart(Product product, int count) {
+  /// Take [product] as Argument and
+  /// Delets it from [Cart].
+  static removeFromCart(Product product) {
     if (items.containsKey(product)) {
-      items[product] -= count;
+      items[product] -= 1;
       if (items[product] <= 0) {
         items.remove(product);
       }
